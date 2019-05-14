@@ -7,7 +7,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {RoomProvider} from './Context';
-import Loading from './components/Loading'
 const elems = 
 <RoomProvider>
 <Router>

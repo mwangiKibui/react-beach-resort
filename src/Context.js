@@ -40,6 +40,7 @@ export default class RoomProvider extends Component {
        let response = await Client.getEntries({content_type:'resortHotel'});
        //set the data
        let rooms = this.formatData(response.items);
+       console.log("the data gotten is ",rooms)
        let featuredRooms = rooms.filter(room => room.featured === true);
        let maxPrice = Math.max(...rooms.map(item => item.price));
        let maxSize = Math.max(...rooms.map(item => item.size));
@@ -62,18 +63,21 @@ export default class RoomProvider extends Component {
 
 
   componentDidMount(){
-      
+    //always remember to execute this
+     this.getData() 
   }
 
 formatData = (items) =>{
-  let tempItems = items.map(item => {
+      let tempItems = items.map(item => {
       //do all the formatting and the destructuring
       let id = item.sys.id
       let images = item.fields.images.map(image => image.fields.file.url );
       //we are overwriting
-      let room = {...item.fields,images,id}
+      let room = {...item.fields,images,id};
+      console.log(room)
       return room;
   })
+  
   return tempItems;
 }
  text = 'the text matters'

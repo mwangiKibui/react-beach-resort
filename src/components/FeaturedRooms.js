@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {RoomContext} from '../Context';
 import Room from './Rooms';
-import Loading from './Loading';
 import Title from './Title';
 
 class FeaturedRooms extends Component {
@@ -9,9 +8,9 @@ class FeaturedRooms extends Component {
   render() {
     //the following destructures featuredRooms and assigns to context
     
-      let { loading,featuredRooms : rooms } = this.context;
-    console.log(`the context `,this.context)
-    console.log(`the featured rooms are `,rooms)
+      let { featuredRooms : rooms } = this.context;
+      
+      console.log(`the structure of the room is `,rooms)
       rooms = rooms.map( room => {
           return <Room key={room.id} room={room}/>
       })
@@ -20,7 +19,7 @@ class FeaturedRooms extends Component {
       <section className="featured-rooms">
           <Title title="featured-rooms"/>
           <div className="featured-rooms-center">
-              { loading ? <Loading /> : rooms} 
+              { rooms ? <p>there are rooms surely</p> : <p>there are no rooms currently</p>} 
           </div>
           
       </section>
