@@ -37,7 +37,7 @@ export default class RoomProvider extends Component {
  
   getData = async ()=>{
     try{
-       let response = await Client.getEntries({content_type:'beachResortRoom'});
+       let response = await Client.getEntries({content_type:'resortHotel'});
        //set the data
        let rooms = this.formatData(response.items);
        let featuredRooms = rooms.filter(room => room.featured === true);
