@@ -14,10 +14,8 @@ const elems =
 <App />
 </Router>
 </RoomProvider>
-let bool = true
-const loader = <Loading />
 
 ReactDOM.render(
-  bool ? elems : loader
+  elems
 , document.getElementById('root'));
 serviceWorker.unregister();
